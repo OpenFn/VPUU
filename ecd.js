@@ -1,3 +1,4 @@
+// Access the ODK data array.
 each(dataPath("data[*]"),
   combine(
     upsert("Program_Activities__c", "unique_id__c", fields(
