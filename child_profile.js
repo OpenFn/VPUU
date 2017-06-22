@@ -1,5 +1,5 @@
 each(
-  //   Access the ODK data array.
+  // Access the ODK data array....
   dataPath("data[*]"),
   create("Contact", fields(
     relationship('RecordType', 'id', 'Beneficiary'),
