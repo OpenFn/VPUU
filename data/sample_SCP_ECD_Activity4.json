@@ -1,0 +1,73 @@
+{
+  "token": "",
+  "formVersion": "",
+  "formId": "SCP_ECD_Activity4",
+  "data": [
+    {
+      "migration": "no",
+      "snack": null,
+      "*meta-model-version*": null,
+      "photo2": null,
+      "migration_repeat": [],
+      "parentworkshop": null,
+      "sectionA": null,
+      "area": "mp",
+      "week": null,
+      "start_time": "15:26:00.000Z",
+      "tidyingtoilet2": null,
+      "intervention": "emthonjeni",
+      "sectionB": null,
+      "wait": null,
+      "geopoint:Altitude": 22.284266805276275,
+      "unlimitedprog": "no",
+      "children_count": 1,
+      "End": "2017-06-22T15:27:25.966Z",
+      "geopoint:Longitude": 18.467332714554704,
+      "instanceID": "uuid:dd4de8ef-8afd-4400-8f1b-a80f58b7c436",
+      "activity1": null,
+      "child_repeat": [
+        {
+          "child_scan": "0004TAB"
+        }
+      ],
+      "sectionC": null,
+      "*meta-date-marked-as-complete*": "2017-06-23T06:42:28.749Z",
+      "end_time": "15:26:00.000Z",
+      "outdoor": null,
+      "geopoint:Accuracy": 5,
+      "*meta-is-complete*": true,
+      "field_other": null,
+      "age": [
+        "24_36"
+      ],
+      "data_other": null,
+      "notefinal": null,
+      "homebased": null,
+      "*meta-instance-id*": "uuid:dd4de8ef-8afd-4400-8f1b-a80f58b7c436",
+      "child_repeat_count": "1",
+      "Start": "2017-06-22T15:26:24.548Z",
+      "DeviceID": "869414021118685",
+      "*meta-ui-version*": null,
+      "activity1detail": null,
+      "arrival": null,
+      "parents": null,
+      "health": null,
+      "earlyroutine": null,
+      "awareness": null,
+      "activity2detail": null,
+      "activity2": null,
+      "fieldworkers": [
+        "Nomathemba_Dake"
+      ],
+      "sectionD": null,
+      "breakfast": null,
+      "photo1": null,
+      "datacollector": "Nomathemba_Dake",
+      "geopoint:Latitude": -33.935640007493184,
+      "site": "A15",
+      "*meta-submission-date*": "2017-06-23T06:42:28.749Z",
+      "activityday": null
+    }
+  ],
+  "content": "record"
+}
