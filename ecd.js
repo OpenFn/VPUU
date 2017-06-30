@@ -56,8 +56,8 @@ each(
           return (state.data.migration == "yes" ? "Left" : "Attended")
         }),
         // field("Reason_for_Migration__c", dataValue("xxx")),
-        relationship("Beneficiary__c", dataValue("child_scan")),
-        relationship("Programme_Activity__c", dataValue("parentId"))
+        relationship("Beneficiary__r", "Unique_ID__c", dataValue("child_scan")),
+        field("Programme_Activity__c", dataValue("parentId"))
       ))
     )
   )
