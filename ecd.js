@@ -2,7 +2,7 @@
 each(dataPath("data[*]"),
   combine(
     upsert("Program_Activities__c", "unique_id__c", fields(
-      // field("unique_id__c", dataValue("xxx")), // Must set this.
+      field("unique_id__c", dataValue("instanceID")), // Must set this up in Salesforce.
       field('Parent_Workshop__c', dataValue('parentworkshop')),
       field('Tidying_up_and_Toilet_routine__c', dataValue('tidyingtoilet2')),
       field('Breakfast__c', dataValue('breakfast')),
@@ -11,8 +11,8 @@ each(dataPath("data[*]"),
       field('Early_Morning_Routine__c', dataValue('earlyroutine')),
       field('Unlimited_Child_Week__c', dataValue('week')),
       field('Important_Session_Notes__c', dataValue('notefinal')),
-      // field('Session_Location__Latitude__s', dataValue('geopoint')), //THIS DOESN'T LOOK RIGHT
-      // field('Session_Location__Longitude__s', dataValue('geopoint\:Longitude')), //THIS DOESN'T LOOK RIGHT
+      field('Session_Location__Latitude__s', dataValue('geopoint:Latitude')),
+      field('Session_Location__Longitude__s', dataValue('geopoint:Longitude')),
       field('Form_Completed_At__c', dataValue('end_time')),
       field('Activity_Start_Date__c', dataValue('Start')),
       field('Form_Started_At__c', dataValue('start_time')),
@@ -42,13 +42,21 @@ each(dataPath("data[*]"),
       field('Activity_One__c', dataValue('activity1')),
       field('Activity_End_Date__c', dataValue('End'))
     )),
-    each(dataPath("attendance[*]"),
-      upsert("Beneficiary_Attendance__c", "some_id__c", fields(
-      // field("some_id__c", dataValue("xxx"),
-      // field("Migration__c", dataValue("xxx")),
-      // field("Picklist__c", dataValue("xxx")),
-      // relationship("Beneficiary", dataValue("xxx")),
-      // relationship("Event", dataValue("xxx")),
+    each(
+      merge(dataPath("child_repeat[*]"), fields(
+        field("migration?", dataValue("migration")),
+        field("parentId", lastReferenceValue("id"))
+      )),
+      upsert("Beneficiary_Attendance__c", "Unique_ID__c", fields(
+        field("Unique_ID__c", function(state) {
+          return state.data.parentId.concat(state.data.child_scan)
+        },
+        field("Attended_Left__c", function(state) {
+          return (state.data.migration == "yes" ? "Left" : "Attended")
+        }
+        // field("Reason_for_Migration__c", dataValue("xxx")),
+        relationship("Beneficiary", dataValue("child_scan")),
+        relationship("Event", dataValue("parentId"))
       ))
     )
   )
