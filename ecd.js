@@ -1,5 +1,6 @@
 // Access the ODK data array.
-each(dataPath("data[*]"),
+each(
+  dataPath("data[*]"),
   combine(
     upsert("Program_Activities__c", "unique_id__c", fields(
       field("unique_id__c", dataValue("instanceID")), // Must set this up in Salesforce.
@@ -49,15 +50,15 @@ each(dataPath("data[*]"),
       )),
       upsert("Beneficiary_Attendance__c", "Unique_ID__c", fields(
         field("Unique_ID__c", function(state) {
-          return state.data.parentId.concat(state.data.child_scan)
-        },
+          return `x${state.data.parentId}`.concat(state.data.child_scan)
+        }),
         field("Attended_Left__c", function(state) {
           return (state.data.migration == "yes" ? "Left" : "Attended")
-        }
+        }),
         // field("Reason_for_Migration__c", dataValue("xxx")),
         relationship("Beneficiary", dataValue("child_scan")),
         relationship("Event", dataValue("parentId"))
       ))
     )
   )
-);
+)
