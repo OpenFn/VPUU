@@ -7,7 +7,7 @@ each(
       field('Parent_Workshop__c', dataValue('parentworkshop')),
       field('Tidying_up_and_Toilet_routine__c', dataValue('tidyingtoilet2')),
       field('Breakfast__c', dataValue('breakfast')),
-      field('Number_of_Children__c', dataValue('children')),
+      field('Number_of_Children__c', dataValue('children_count')),
       field('Device_ID__c', dataValue('DeviceID')),
       field('Early_Morning_Routine__c', dataValue('earlyroutine')),
       field('Unlimited_Child_Week__c', dataValue('week')),
