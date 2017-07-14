@@ -2,7 +2,7 @@
 each(
   dataPath("data[*]"),
   combine(
-    upsert("Programme_Activities__c", "unique_id__c", fields(
+    upsert("Programme_Activities__c", "ID__c", fields(
       field("unique_id__c", dataValue("instanceID")), // Must set this up in Salesforce.
       field('Parent_Workshop__c', dataValue('parentworkshop')),
       field('Tidying_up_and_Toilet_routine__c', dataValue('tidyingtoilet2')),
