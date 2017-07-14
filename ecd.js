@@ -25,7 +25,12 @@ each(
       field('Activity_Two_Detail__c', dataValue('activity2detail')),
       field('Snack_time__c', dataValue('snack')),
       field('Subscriber_ID__c', dataValue('SubscriberID')),
-      field('Field_Workers__c', dataValue('fieldworkers')),
+      field('Field_Workers__c', function(state) {
+        const spacey_fieldworkers = state.data.fieldworkers.map((name) => {
+          return name.split('_').join(' ');
+        });
+        return spacey_fieldworkers.join(";");
+      }),
       field('Fieldworker_Other__c', dataValue('field_other')),
       field('Number_of_Facilitators__c', dataValue('facilitators')),
       field('Activity_One_Detail__c', dataValue('activity1detail')),
@@ -35,7 +40,7 @@ each(
       field('Outdoor_Play__c', dataValue('outdoor')),
       field('Site__c', dataValue('site')),
       field('Unlimited_Child_Day__c', dataValue('activityday')),
-      field('Area__c', dataValue('area')),
+      // field('Area__c', dataValue('area')), // no such field
       field('Cohort_Age__c', dataValue('Age')),
       field('Number_of_Parents__c', dataValue('parents')),
       field('Activity_Two__c', dataValue('activity2')),
