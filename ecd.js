@@ -50,6 +50,7 @@ each(
       )),
       upsert("Beneficiary_Attendance__c", "Unique_ID__c", fields(
         field("Unique_ID__c", function(state) {
+          console.log(state.data)
           return `x${state.data.parentId}`.concat(state.data.child_scan)
         }),
         field("Attended_Left__c", function(state) {
