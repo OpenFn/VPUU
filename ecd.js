@@ -51,7 +51,7 @@ each(
     each(
       merge(dataPath("child_repeat[*]"), fields(
         field("migration?", dataValue("migration")),
-        field("parentId", lastReferenceValue("id"))
+        field("parentId", dataValue("instanceID"))
       )),
       upsert("Beneficiary_Attendance__c", "Unique_ID__c", fields(
         field("Unique_ID__c", function(state) {
@@ -62,7 +62,7 @@ each(
         }),
         // field("Reason_for_Migration__c", dataValue("xxx")),
         relationship("Beneficiary__r", "Unique_ID__c", dataValue("child_scan")),
-        field("Programme_Activity__c", dataValue("parentId"))
+        relationship("Programme_Activity__c", "ID__c", dataValue("parentId"))
       ))
     )
   )
