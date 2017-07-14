@@ -18,7 +18,7 @@ each(
       field('Activity_Start_Date__c', dataValue('Start')),
       field('Form_Started_At__c', dataValue('Start')),
       field('Data_Collector__c', dataValue('datacollector')),
-      field('Data_Collector__c', dataValue('data_other')),
+      // field('Data_Collector__c', dataValue('data_other')), Where should this go?
       field('Intervention__c', dataValue('intervention')),
       field('Health__c', dataValue('health')),
       field('Lunch__c', dataValue('lunch')),
