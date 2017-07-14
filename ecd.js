@@ -55,14 +55,14 @@ each(
       )),
       upsert("Beneficiary_Attendance__c", "Unique_ID__c", fields(
         field("Unique_ID__c", function(state) {
-          return `x${state.data.parentId}`.concat(state.data.child_scan)
+          return `${state.data.parentId}__`.concat(state.data.child_scan)
         }),
         field("Attended_Left__c", function(state) {
           return (state.data.migration == "yes" ? "Left" : "Attended")
         }),
         // field("Reason_for_Migration__c", dataValue("xxx")),
         relationship("Beneficiary__r", "Unique_ID__c", dataValue("child_scan")),
-        relationship("Programme_Activity__c", "ID__c", dataValue("parentId"))
+        relationship("Programme_Activity__r", "ID__c", dataValue("parentId"))
       ))
     )
   )
