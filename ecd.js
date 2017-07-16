@@ -19,7 +19,6 @@ each(
       field('Form_Completed_At__c', dataValue('*meta-date-marked-as-complete*')),
       field('Activity_Start_Date__c', dataValue('Start')),
       field('Form_Started_At__c', dataValue('Start')),
-      field('Data_Collector__c', dataValue('datacollector')),
       field('Data_Collector__c', function(state) => {
         return state.data.datacollector.split('_').join(' ')
       }),
