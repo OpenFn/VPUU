@@ -7,6 +7,8 @@ each(
       field('Parent_Workshop__c', dataValue('parentworkshop')),
       field('Tidying_up_and_Toilet_routine__c', dataValue('tidyingtoilet2')),
       field('Breakfast__c', dataValue('breakfast')),
+      field('Photo_1__c', dataValue('photo1.url')),
+      field('Photo_2__c', dataValue('photo2.url')),
       field('Number_of_Children__c', dataValue('children_count')),
       field('Device_ID__c', dataValue('DeviceID')),
       field('Early_Morning_Routine__c', dataValue('earlyroutine')),
