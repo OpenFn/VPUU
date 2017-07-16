@@ -1,7 +1,7 @@
 each(
   // Access the ODK data array....
   dataPath("data[*]"),
-  create("Contact", fields(
+  upsert("Contact", "Unique_ID__c", fields(
     relationship('RecordType', 'id', 'Beneficiary'),
     field('Phone', dataValue('cell')),
     field('MailingStreet', dataValue('street-address')),
