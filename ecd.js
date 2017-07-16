@@ -20,6 +20,9 @@ each(
       field('Activity_Start_Date__c', dataValue('Start')),
       field('Form_Started_At__c', dataValue('Start')),
       field('Data_Collector__c', dataValue('datacollector')),
+      field('Data_Collector__c', function(state) => {
+        return state.data.datacollector.split('_').join(' ')
+      }),
       // field('Data_Collector__c', dataValue('data_other')), Where should this go?
       field('Intervention__c', dataValue('intervention')),
       field('Health__c', dataValue('health')),
@@ -42,7 +45,7 @@ each(
       field('Outdoor_Play__c', dataValue('outdoor')),
       field('Site__c', dataValue('site')),
       field('Unlimited_Child_Day__c', dataValue('activityday')),
-      // field('Area__c', dataValue('area')), // no such field
+      field('SNA__c', dataValue('area')),
       field('Cohort_Age__c', dataValue('Age')),
       field('Number_of_Parents__c', dataValue('parents')),
       field('Activity_Two__c', dataValue('activity2')),
