@@ -34,7 +34,9 @@ each(
         const spacey_fieldworkers = state.data.fieldworkers.map((name) => {
           return name.split('_').join(' ');
         });
-        return spacey_fieldworkers.join(";");
+        if (spacey_fieldworkers.join(";") == 'other') {
+          return "";
+        } else return spacey_fieldworkers.join(";");
       }),
       field('Fieldworker_Other__c', dataValue('field_other')),
       field('Number_of_Facilitators__c', dataValue('facilitators')),
