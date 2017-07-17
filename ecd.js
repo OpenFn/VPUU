@@ -45,7 +45,9 @@ each(
       field('Site__c', dataValue('site')),
       field('Unlimited_Child_Day__c', dataValue('activityday')),
       field('SNA__c', dataValue('area')),
-      field('Cohort_Age__c', dataValue('Age')),
+      field('Cohort_Age__c', function(state) {
+        return state.data.age.join(";");
+      }),
       field('Number_of_Parents__c', dataValue('parents')),
       field('Activity_Two__c', dataValue('activity2')),
       field('Arrival_and_Free_Play__c', dataValue('arrival')),
