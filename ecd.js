@@ -4,7 +4,7 @@ beta.each(
   upsert("Contact", "Unique_ID__c", fields(
     // relationship('RecordType', 'id', 'Beneficiary'))
     field("Unique_ID__c", dataValue("child_scan")),
-    field("Last_Name", "Unknown...")
+    field("Name", "Unknown...")
   ))
 );
 
