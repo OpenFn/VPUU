@@ -2,7 +2,7 @@
 beta.each(
   dataPath("data[0].child_repeat[*]"),
   upsert("Contact", "Unique_ID__c", fields(
-    field("Unique_ID__c", dataValue("child_scan")),
+    field("Unique_ID__c", dataValue("child_scan"))
     // field("LastName", "Unknown...")
   ))
 );
