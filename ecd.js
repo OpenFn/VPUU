@@ -1,4 +1,14 @@
-// Access the ODK data array.
+// Add a contact FIRST
+beta.each(
+  dataPath("data[0].child_repeat[*]"),
+  upsert("Contact", "Unique_ID__c", fields(
+    // relationship('RecordType', 'id', 'Beneficiary'))
+    field("Unique_ID__c", dataValue("child_scan")),
+    field("Last_Name", "Unknown...")
+  ))
+);
+
+// Then add the program activities record and attendance records...
 each(
   dataPath("data[*]"),
   combine(
