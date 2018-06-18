@@ -1,12 +1,12 @@
 // Add a contact FIRST
-beta.each(
-  dataPath("data[0].child_repeat[*]"),
-  upsert("Contact", "Unique_ID__c", fields(
-    // relationship('RecordType', 'id', 'Beneficiary'))
-    field("Unique_ID__c", dataValue("child_scan")),
-    field("LastName", "Unknown...")
-  ))
-);
+// beta.each(
+//   dataPath("data[0].child_repeat[*]"),
+//   upsert("Contact", "Unique_ID__c", fields(
+//     // relationship('RecordType', 'id', 'Beneficiary'))
+//     field("Unique_ID__c", dataValue("child_scan")),
+//     field("LastName", "Unknown...")
+//   ))
+// );
 
 // Then add the program activities record and attendance records...
 each(
